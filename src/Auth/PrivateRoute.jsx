@@ -8,7 +8,7 @@ function PrivateRoute() {
   return (
     <React.Fragment>
         {
-            isLogin ? <Outlet/> : <Navigate to={`/login`} />
+          isLogin ? <Outlet/> : <Navigate to={`/login`} />
         }
     </React.Fragment>
   )

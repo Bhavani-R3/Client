@@ -1,19 +1,28 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useContext } from 'react'
 import { toast } from 'react-toastify'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
+import axios from 'axios';
+import { AuthContext } from '../../Context/AuthContext';
 
 function Login() {
+  const context = useContext(AuthContext)
+  const setIsLogin = context.setIsLogin
+  const setToken = context.setToken
+
   const [view,setView] = useState('email');
   const femail = useRef();
   const fmobile = useRef();
   const fpassword = useRef();
+
+  // navigate instance
+  const navigate = useNavigate()
 
   const viewHandler = (val) => {
     setView(val)
   }
 
   // submit handler
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault(); // to avoid page refresh
     try {
       if(view === 'email') {
@@ -22,16 +31,33 @@ function Login() {
           password: fpassword.current.value
         }
         console.log(`email login = `, data)
+        authenticateUser(data)
       } else {
         let data = {
           mobile: fmobile.current.value,
           password: fpassword.current.value
         }
         console.log(`mobile login = `, data)
+        authenticateUser(data)
       }
     } catch (err) {
       toast.error(err)
     }
+  }
+
+  const authenticateUser = async (user) => {
+    await axios.post(`/api/auth/login`, user)
+      .then(res => {
+        toast.success(res.data.msg)
+        setIsLogin(res.data.success)
+        setToken(res.data.authToken)
+
+        localStorage.setItem("CC_TOKEN", res.data.authToken)
+        localStorage.setItem("CC_STATUS", res.data.success)
+
+        window.location.href = '/'
+        navigate(`/`)
+      }).catch(err => toast.error(err.reponse.data.msg))
   }
 
   return (
@@ -73,11 +99,14 @@ function Login() {
                 </div>
               </form>
             </div>
-            <div className="card-footer">
-              <p className="text-end text-danger">
-                <strong>Are you a new user</strong>
+            <div className="card-footer d-flex justify-content-between">
+              <div className="text-start">
+                <NavLink to={`/generate/password`} className={'btn btn-link text-success'}>Forgot Password?</NavLink>
+              </div>
+              <div className="text-end text-danger">
+                
                 <NavLink to={`/register`} className="btn btn-link">Register Here</NavLink>
-              </p>
+              </div>
             </div>
           </div>
         </div>
