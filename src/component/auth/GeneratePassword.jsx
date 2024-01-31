@@ -1,5 +1,5 @@
-import axios from 'axios'
 import React, { useRef, useState } from 'react'
+import axios from 'axios'
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
 
@@ -17,7 +17,7 @@ function GeneratePassword() {
                 email: femail.current.value
             }).then(res => {
                 toast.success(res.data.msg)
-                setValid(res.data.status)
+                setValid(res.data.success)
             }).catch(err => toast.error(err.response.data.msg))
         }
     }
@@ -28,7 +28,7 @@ function GeneratePassword() {
             email: femail.current.value
         }).then(res => {
             toast.success(res.data.msg)
-            navigate(`/login`)
+            navigate(`/password/reset?token=${res.data.token}`)
         }).catch(err => toast.error(err.response.data.msg))
     }
 

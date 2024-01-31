@@ -54,7 +54,7 @@ function AuthProvider(props) {
     },[isUser,isAdmin])
 
   return (
-    <AuthContext.Provider value={{ isAdmin, setIsAdmin, isUser, setIsUser, isLogin, setIsLogin, currentUser, setIsUser, token, setToken }}>
+    <AuthContext.Provider value={{ isAdmin, setIsAdmin, isUser, setIsUser, isLogin, setIsLogin, currentUser, setCurrentUser, token, setToken }}>
         { props.children }
     </AuthContext.Provider>
   )

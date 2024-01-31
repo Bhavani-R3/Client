@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react'
 import axios from 'axios'
 import { toast } from 'react-toastify'
+import { NavLink } from 'react-router-dom'
 
 function Home() {
   const [docs,setDocs] = useState([])
@@ -41,7 +42,7 @@ function Home() {
                     }
 
                     {
-                      item.extName === ".pdf" ? <embed src="https://media.istockphoto.com/id/1304649959/vector/pdf-icon-on-white-background-file-pdf-icon-sign-pdf-format-symbol-flat-style.jpg?s=612x612&w=0&k=20&c=FUgE9ZJCNDvqc4uYO5-6RVZRpz1_oWQ4PiUSB2QdyeM=" className='img-fluid' /> : null
+                      item.extName === ".pdf" ? <embed src={"https://media.istockphoto.com/id/1304649959/vector/pdf-icon-on-white-background-file-pdf-icon-sign-pdf-format-symbol-flat-style.jpg?s=612x612&w=0&k=20&c=FUgE9ZJCNDvqc4uYO5-6RVZRpz1_oWQ4PiUSB2QdyeM="} className='img-fluid' /> : null
                     }
 
                     {

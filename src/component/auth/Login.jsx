@@ -87,12 +87,12 @@ function Login() {
                     </div> ) : (
                     <div className="form-group mt-2">
                       <label htmlFor="mobile">Mobile</label>
-                      <input type="number" name="mobile" id="mobile" ref={fmobile} className='form-control' required />
+                      <input type="number" name="mobile" ref={fmobile} id="mobile" className='form-control' required />
                     </div> )
                 }
                 <div className="form-group mt-2">
                   <label htmlFor="password">Password</label>
-                  <input type="password" name="password" id="password" ref={fpassword} className='form-control' required />
+                  <input type="password" name="password" ref={fpassword} id="password" className='form-control' required />
                 </div>
                 <div className="form-group mt-2">
                   <input type="submit" value="Login" className='btn btn-success' />
@@ -103,9 +103,8 @@ function Login() {
               <div className="text-start">
                 <NavLink to={`/generate/password`} className={'btn btn-link text-success'}>Forgot Password?</NavLink>
               </div>
-              <div className="text-end text-danger">
-                
-                <NavLink to={`/register`} className="btn btn-link">Register Here</NavLink>
+              <div className="text-end text-danger">  
+                <NavLink to={`/register`} className="btn btn-link text-danger">Register Here</NavLink>
               </div>
             </div>
           </div>

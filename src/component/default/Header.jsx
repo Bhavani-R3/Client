@@ -20,7 +20,7 @@ function Header() {
           setIsUser(false)
           setIsAdmin(false)
           setCurrentUser(false)
-        }).catch(err => toast.error(err))
+        }).catch(err => toast.error(err.response.data.msg))
     } else {
       return
     }
@@ -28,7 +28,7 @@ function Header() {
 
   return (
     <header>
-      <nav className={isLogin ? "navbar navbar-expand-md navbar-dark bg-success": "navbar navbar-expand-md navbar-dark bg-primary" }>
+      <nav className={isLogin ? "navbar navbar-expand-md navbar-dark bg-success" : "navbar navbar-expand-md navbar-dark bg-primary" }>
         <div className="container">
           <NavLink to={`/`} className="navbar-brand">File Manager</NavLink>
 
@@ -83,12 +83,12 @@ function Header() {
               </li>
             </ul>
           </div> ) : ( 
-          <div className="collapse navbar-collapse justify-content-between" id="menu">
-            <ul className="navbar-nav justify-content-between">
+          <div className="collapse navbar-collapse justify-content-end" id="menu">
+            <ul className="navbar-nav">
               <li className="nav-item">
                 <NavLink to={`/login`} className="nav-link">Login</NavLink>
               </li>
-              <li>
+              <li className='nav-item'>
                 <NavLink to={`/register`} className="nav-link">Register</NavLink>
               </li>
             </ul>     
