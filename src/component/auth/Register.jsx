@@ -23,7 +23,7 @@ function Register() {
         password: fpassword.current.value
       }
       console.log(`register =`, data)
-      await axios.post(`/api/auth/register`, data)
+      await axios.post(`https://rest-api-w4xt.onrender.com/api/auth/register`, data)
         .then(res => {
           toast.success(res.data.msg)
           navigate(`/login`)

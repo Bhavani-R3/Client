@@ -12,7 +12,7 @@ function View() {
 
   const readFile = useCallback(() => {
     const readData = async () => {
-      await axios.get(`/api/file/single/${params.id}`, {
+      await axios.get(`https://rest-api-w4xt.onrender.com/api/file/single/${params.id}`, {
         headers: {
           Authorization: token
         }

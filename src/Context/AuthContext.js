@@ -24,7 +24,7 @@ function AuthProvider(props) {
       }
 
     // access the user info based on token
-    await axios.get(`/api/auth/current/user`, {
+    await axios.get(`https://rest-api-w4xt.onrender.com/api/auth/current/user`, {
       headers: {
         Authorization: aToken
       }
