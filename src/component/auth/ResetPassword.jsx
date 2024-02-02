@@ -26,7 +26,7 @@ function ResetPassword() {
             if(fp !== cp) {
                 toast.warning(`Passwords are not matched`)
             } else {
-                await axios.patch(`https://rest-api-w4xt.onrender.com/api/auth/password/update`, {
+                await axios.patch(`api/auth/password/update`, {
                     password: fp
                 }, {
                     headers: {

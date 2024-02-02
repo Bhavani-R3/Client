@@ -5,12 +5,12 @@ import { NavLink } from 'react-router-dom'
 
 function Home() {
   const [docs,setDocs] = useState([])
-  const url = "https://rest-api-w4xt.onrender.com"
+  const url = "https://rest-api-0f5q.onrender.com"
 
   // callback hook
   const getCallback = useCallback(() => {
     const getInput = async () => {
-      await axios.get(`https://rest-api-w4xt.onrender.com/api/file/open`).then(res => {
+      await axios.get(`api/file/open`).then(res => {
         setDocs(res.data.files)
       }).catch(err => toast.error(err.response.data.msg))
     }

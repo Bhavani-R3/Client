@@ -7,12 +7,12 @@ import { AuthContext } from '../../Context/AuthContext'
 function UserDashboard() {
   const [docs,setDocs] = useState([])
   const { token } = useContext(AuthContext)
-  const url = "https://rest-api-w4xt.onrender.com"
+  const url = "https://rest-api-0f5q.onrender.com"
 
   // callback hook
   const getCallback = useCallback(() => {
     const getInput = async () => {
-      await axios.get(`https://rest-api-w4xt.onrender.com/api/file/all`, {
+      await axios.get(`api/file/all`, {
         headers: {
           Authorization: token
         }
@@ -31,7 +31,7 @@ function UserDashboard() {
   // delete handler
   const deleteFile = async (id) => {
     if(window.confirm(`Are you sure to delete file?`)) {
-      await axios.delete(`https://rest-api-w4xt.onrender.com/api/file/delete/${id}`, {
+      await axios.delete(`api/file/delete/${id}`, {
         headers: {
           Authorization: token
         }

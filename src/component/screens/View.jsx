@@ -8,11 +8,11 @@ function View() {
   const [file,setFile] = useState(false)
   const { token } = useContext(AuthContext)
   const params = useParams()
-  const url = "https://rest-api-w4xt.onrender.com"
+  const url = "https://rest-api-0f5q.onrender.com"
 
   const readFile = useCallback(() => {
     const readData = async () => {
-      await axios.get(`https://rest-api-w4xt.onrender.com/api/file/single/${params.id}`, {
+      await axios.get(`api/file/single/${params.id}`, {
         headers: {
           Authorization: token
         }
