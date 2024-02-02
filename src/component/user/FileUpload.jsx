@@ -36,7 +36,7 @@ function FileUpload() {
             formData.append("product", files)
             setLoader(true)
 
-            await axios.post(`api/file/upload`, formData, {
+            await axios.post(`https://rest-api-0f5q.onrender.com/api/file/upload`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     Authorization: token

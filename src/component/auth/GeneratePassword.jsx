@@ -13,7 +13,7 @@ function GeneratePassword() {
         if(femail.current.value === null || femail.current.value === "") {
             toast.warning(`User email field has to be filled`)
         } else {
-            await axios.post(`api/auth/verify/user`, {
+            await axios.post(`https://rest-api-0f5q.onrender.com/api/auth/verify/user`, {
                 email: femail.current.value
             }).then(res => {
                 toast.success(res.data.msg)
@@ -24,7 +24,7 @@ function GeneratePassword() {
 
     // generate password
     const genPassword = async () => {
-        await axios.post(`api/auth/generate/password/link`, {
+        await axios.post(`https://rest-api-0f5q.onrender.com/api/auth/generate/password/link`, {
             email: femail.current.value
         }).then(res => {
             toast.success(res.data.msg)

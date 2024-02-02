@@ -46,7 +46,7 @@ function Login() {
   }
 
   const authenticateUser = async (user) => {
-    await axios.post(`api/auth/login`, user)
+    await axios.post(`https://rest-api-0f5q.onrender.com/api/auth/login`, user)
       .then(res => {
         toast.success(res.data.msg)
         setIsLogin(res.data.success)

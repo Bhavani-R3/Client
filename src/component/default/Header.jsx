@@ -10,7 +10,7 @@ function Header() {
   // logout
   const logoutHandler = async () => {
     if(window.confirm(`Are you sure to logout?`)) {
-      await axios.get(`api/auth/logout`)
+      await axios.get(`https://rest-api-0f5q.onrender.com/api/auth/logout`)
         .then(res => {
           toast.success(res.data.msg)
           localStorage.clear()
