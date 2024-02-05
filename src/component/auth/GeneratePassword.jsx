@@ -28,7 +28,7 @@ function GeneratePassword() {
             email: femail.current.value
         }).then(res => {
             toast.success(res.data.msg)
-            navigate(`/password/reset?token=${res.data.token}`)
+            navigate(`https://rest-api-0f5q.onrender.com/password/reset?token=${res.data.token}`)
         }).catch(err => toast.error(err.response.data.msg))
     }
 

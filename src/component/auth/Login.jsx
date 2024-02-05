@@ -57,7 +57,7 @@ function Login() {
 
         window.location.href = '/'
         navigate(`/`)
-      }).catch(err => toast.error(err.reponse.data.msg))
+      }).catch(err => toast.error(err.response.data.msg))
   }
 
   return (
