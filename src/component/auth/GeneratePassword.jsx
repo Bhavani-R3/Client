@@ -17,7 +17,7 @@ function GeneratePassword() {
                 email: femail.current.value
             }).then(res => {
                 toast.success(res.data.msg)
-                setValid(res.data.status)
+                setValid(res.data.success)
             }).catch(err => toast.error(err.response.data.msg))
         }
     }

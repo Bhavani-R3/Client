@@ -37,7 +37,7 @@ function UserDashboard() {
         }
       }).then(res => {
         toast.success(res.data.msg)
-        window.location.reload()
+        // window.location.reload()
       }).catch(err => toast.error(err.response.data.msg))
     }  
   }
