@@ -28,7 +28,7 @@ function GeneratePassword() {
             email: femail.current.value
         }).then(res => {
             toast.success(res.data.msg)
-            navigate(`https://rest-api-0f5q.onrender.com/password/reset?token=${res.data.token}`)
+            navigate(`/password/reset?token=${res.data.token}`)
         }).catch(err => toast.error(err.response.data.msg))
     }
 
@@ -47,8 +47,7 @@ function GeneratePassword() {
                             <div className="input-group">
                                 <input type="email" name="email" ref={femail} id="email" className='form-control' placeholder='Enter your registered email id' readOnly={valid ? true : false} />
                                 {
-                                    valid ? <button onClick={genPassword} className='btn btn-success'>Generate Password Link</button> :
-                                    <button className='btn btn-primary' onClick={validate}>Verify Email ID</button>
+                                    valid ? <button onClick={genPassword} className='btn btn-success'>Generate Password Link</button> : <button className='btn btn-primary' onClick={validate}>Verify Email ID</button>
                                 }
                             </div>
                         </div>
